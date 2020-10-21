@@ -30,7 +30,7 @@ namespace SignalRChat
                 {
                     builder
 
-                    .WithOrigins("https://localhost:3000")
+                    .WithOrigins("https://localhost:4200")
                     .AllowAnyHeader()
                     .AllowAnyMethod()
                     .AllowCredentials()
