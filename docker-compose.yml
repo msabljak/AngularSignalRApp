@@ -1,17 +1,19 @@
 version: "3.8"
 services:
     signalr:
-        build:
-            context: .
-            dockerfile: ./SignalRChat/Dockerfile
+        #build:
+            #context: .
+            #dockerfile: ./SignalRChat/Dockerfile
+        image: msabljak/signalrchat:latest
         expose: 
             - "8000"
         ports:
             - "8000:8000"
     angular:
-        build:
-            context: .
-            dockerfile: ./Angular/Dockerfile
+        #build:
+            #context: .
+            #dockerfile: ./Angular/Dockerfile
+        image: msabljak/angularapp
         expose: 
             - "4200"
         ports: 
