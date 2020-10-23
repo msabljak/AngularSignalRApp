@@ -4,7 +4,7 @@ FROM mcr.microsoft.com/dotnet/core/aspnet:3.1-buster-slim AS base
 WORKDIR /app
 EXPOSE 80
 EXPOSE 443
-EXPOSE 5001
+EXPOSE 4200
 
 FROM mcr.microsoft.com/dotnet/core/sdk:3.1-buster AS build
 WORKDIR /src
@@ -16,6 +16,10 @@ WORKDIR "/src/Angular"
 RUN dotnet build "Angular.csproj" -c Release -o /app/build
 
 FROM build AS publish
+## Add nodejs to container
+RUN curl -sL https://deb.nodesource.com/setup_10.x | bash
+RUN apt-get install nodejs
+## Finish adding nodejs to container
 RUN dotnet publish "Angular.csproj" -c Release -o /app/publish
 
 #Angular build

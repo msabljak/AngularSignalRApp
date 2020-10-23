@@ -18,8 +18,8 @@ export class SignalRService {
 
   connect(){
     this._hubConnection = new signalR.HubConnectionBuilder()
-                            .withUrl('https://localhost:44385/chathub')
-                            .build();
+      .withUrl('http://localhost:5000/chathub')
+      .build();
     console.log("Connection built")
   }
 
